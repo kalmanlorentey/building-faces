@@ -464,11 +464,13 @@ def balustrade_under_window(szel,mag,bdb): # (bdb: baluster darab)
    right(90)
    forward(mag*10/16)
    down()
+   coloration_start(penink,1)
    for steps in range(2):
        forward(mag*2/16)
        left(90)
        forward(bwd*bdb*5/2)
        left(90)
+   coloration_end(penink)
    left(90)
    balustrade(bwd,bht,bdb)
    up()
@@ -1069,35 +1071,40 @@ def ajto(szel,mag,doortype):
 #			right(90)
 #			forward(szel)
 
-def brick1(blokkemelet,szel,mag):
+def brick1(szel,mag):
     coloration_start(penink,1)
-    for steps in range(blokkemelet*8):
-	    backward(szel/2)
-	    left(90)
-	    forward(mag/4)
-	    right(90)
-	    forward(szel/2)
-	    backward(szel/4)
-	    left(90)
-	    forward(mag/4)
-	    right(90)
-	    forward(szel/4)
+    for steps in range(2):
+        forward(mag/4)
+        left(90)
+        forward(szel/2)
+        left(90)
     coloration_end(penink)
+    forward(mag/4)
 
-def brick2(blokkemelet,szel,mag): # ///össze lehet vonni az előzővel///
+
+def brick2(szel,mag): # ///össze lehet vonni az előzővel///
     coloration_start(penink,1)
-    for steps in range(blokkemelet*8):
-	    backward(szel/4)
-	    left(90)
-	    forward(mag/4)
-	    right(90)
-	    forward(szel/4)
-	    backward(szel/2)
-	    left(90)
-	    forward(mag/4)
-	    right(90)
-	    forward(szel/2)
+    for steps in range(2):
+        forward(mag/4)
+        left(90)
+        forward(szel/4)
+        left(90)
     coloration_end(penink)
+    forward(mag/4)
+
+
+def bricks(blokkemelet,szel,mag,startbrick):
+    if startbrick==1:
+        for steps in range(blokkemelet*8):
+            brick1(szel,mag)
+            brick2(szel,mag)
+    if startbrick==2:
+        for steps in range(blokkemelet*8):
+            brick2(szel,mag)
+            brick1(szel,mag)
+     
+       
+    
 
 def tetoalj0(szel,mag,dbsum,xtra_sum):
     coloration_start(penink,1)
@@ -1270,11 +1277,13 @@ def blokk0(szel,mag,blokkdb,blokkemelet,wintype0,timptype0,hpos,doortype,hblokks
 def blokk1(szel,mag,blokkdb,blokkemelet,wintype1,timptype1,hpos,doortype,xtrawd): # díszes
     blokkkeret1(szel,mag,blokkdb,blokkemelet,xtrawd)
     forward(5*blokkdb*szel+xtrawd*szel)
-    brick1(blokkemelet,szel,mag)
-    left(180)
+    left(90)
+    bricks(blokkemelet,szel,mag,1)
+    left(90)
     forward(5*blokkdb*szel+xtrawd*szel)
-    brick2(blokkemelet,szel,mag)
-    left(180)
+    left(90)
+    bricks(blokkemelet,szel,mag,2)
+    left(90)
 
     left(90)
     forward(mag)
