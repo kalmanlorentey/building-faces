@@ -3,29 +3,7 @@ import math
 from turtle import *
 from tkinter import *
 
-
-
-
-
-
 penink='grey'
-#fillink0='#f9d87c'
-#fillink1='#f7e5b4'
-
-
-
-    
-
-
-#def coloration_start(penink,filltype):
-#    if filltype==0:
-#        fillink=fillink0
-#    if filltype==1:
-#        fillink=fillink1
-#    if filltype==2:
-#        fillink=fillink2
-#    color(penink,fillink)
-#    begin_fill()
 
 def timp0(szel,mag,xtrawd,fillink0,fillink1): # nem rajzol semmit
     up()
@@ -1466,45 +1444,6 @@ gomb05 = Button(root, text='Reset', command=visszaallit)
 gomb05.grid(row=10, padx=20, pady=30)
 
 root.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-#def updateLabel(xx):
-#    lab.configure(text='szélesség =' + str(xx))
-
-#szel=xx
-#mag=szel*1.5
-
-#GUI = Tk()
-#szoveg = Label(GUI, text='RAJZOLJUNK HÁZAT!', fg='red')
-#szoveg.pack(side=TOP, padx=30, pady=10) #ablakbeli elrendezésre hat
-#szel = Entry(GUI)
-#szel.bind("<Return>", szin)
-#szel.pack()
-#Scale(GUI, length=250, orient=HORIZONTAL, label='Állítsd be a szélességet:', troughcolor ='dark grey', sliderlength=20, showvalue=0, from_=10, to=100, tickinterval=10, command=updateLabel).pack()
-#lab = Label(GUI)
-#lab.pack
-
-
-#setheading(0)
-
-
-#GUI.mainloop() #eseményfogadót elindítja(kattintást figyel)
-
-
-
-
-
-
 
 
 
