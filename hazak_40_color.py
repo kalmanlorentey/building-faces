@@ -4,6 +4,16 @@ from turtle import *
 from tkinter import *
 
 
+def coloration_start(ink):
+    #color("#bcbcbc")
+    color(ink)
+    begin_fill()
+
+def coloration_end(ink):
+    end_fill()
+    #color("#bcbcbc")
+    color(ink)
+    
 
 def timp0(szel,mag): # nem rajzol semmit
     up()
@@ -1209,7 +1219,9 @@ def blokkkeret1(szel,mag,blokkdb,blokkemelet,xtrawd): # díszes vertikális tag 
     left(90)
 
 def blokk0(szel,mag,blokkdb,blokkemelet,wintype0,timptype0,hpos,doortype,hblokksum,pilaster_yn): # dísztelen
+    coloration_start('#dba81c')
     blokkkeret0(szel,mag,blokkdb,blokkemelet)
+    coloration_end('grey')
     left(90)
     forward(mag)
     right(90)
