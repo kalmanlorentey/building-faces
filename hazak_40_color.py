@@ -96,15 +96,32 @@ def timp3(szel,mag,xtrawd): # ablak fölötti összetett timpanon (2*szel*1.2 (v
     left(90)
     down()
 
+    coloration_start(penink,1)  #felső kőlap
     forward(szel*a)
     right(160)
     forward(x)
     right(40)
     forward(x)
-    right(160)
-    forward(szel*a)
+    left(90)
+    forward(a*szel/9)
+    left(90)
+    forward(x+y)
+    left(40)
+    forward(x+y)
+    left(90)
+    forward(a*szel/9)
+    coloration_end(penink)
 
-    forward(szel*a*0.8)
+    coloration_start(penink,1)  #alsó kőlap
+    right(110)
+    for steps in range(2):
+        left(90)
+        forward(mag*0.06)
+        left(90)
+        forward(szel*a*2)
+    coloration_end(penink)
+
+    backward(szel*a*(1-0.8)) #belső háromszög
     right(160)
     forward(x*0.8)
     right(40)
@@ -114,30 +131,7 @@ def timp3(szel,mag,xtrawd): # ablak fölötti összetett timpanon (2*szel*1.2 (v
 
     up()
     left(90)
-    forward(mag*0.06)
-    right(90)
-    down()
-
-    forward(szel*a)
-    right(90)
-    forward(mag*0.06)
-    left(20)
-    forward(a*szel/9)
-    right(90)
-    forward(x+y)
-    right(40)
-    forward(x+y)
-    right(90)
-    forward(a*szel/9)
-    left(20)
-    forward(mag*0.06)
-    right(90)
-    forward(szel*a)
-
-
-    up()
-    left(90)
-    forward(mag*0.14)
+    forward(mag*0.2)
     right(90)
     down()
 
@@ -154,43 +148,46 @@ def timp4(szel,mag,xtrawd): # ablak fölötti összetett lunetta (2*szel*1.2 (va
     left(90)
     down()
 
+    coloration_start(penink,1)  #legfelső körív
+    backward(szel*a)
+    left(60)
+    backward(a*szel/9) #legfelső körívnél ennyivel nő a sugár
+    right(90)
+    circle(r1+a*szel/9,60)
+    right(90)
+    backward(a*szel/9)
+    left(60)
+    backward(szel*a)
+    coloration_end(penink)
+
+    coloration_start(penink,0)  #középső körív
     backward(szel*a)
     right(30)
     circle(r1,60)
     right(30)
-    backward(szel*a+szel*a*0.8)
+    backward(szel*a)
+    coloration_end(penink)
 
+    coloration_start(penink,0)  #alsó körív
+    backward(szel*a*0.8)
     right(alpha)
     circle(r2,alpha*2)
     right(alpha)
     backward(szel*a*0.8)
+    coloration_end(penink)
 
-
-    up()
-    left(90)
-    forward(mag*0.06)
-    right(90)
-    down()
-
-    backward(szel*a)
-    right(90)
-    forward(mag*0.06)
-
-    right(30)
-    forward(a*szel/9) #legfelső körívnél ennyivel nő a sugár
-    left(90)
-    circle(r1+a*szel/9,60)
-    left(90)
-    forward(a*szel/9)
-    right(30)
-
-    forward(mag*0.06)
-    right(90)
-    backward(szel*a)
+    coloration_start(penink,1)  #alsó kőlap
+    for steps in range(2):  
+        forward(szel*a)
+        left(90)
+        forward(mag*0.06)
+        left(90)
+        forward(szel*a)
+    coloration_end(penink)
 
     up()
     left(90)
-    forward(mag*0.14)
+    forward(mag*0.2)
     right(90)
     down()
 
