@@ -31,46 +31,27 @@ def coloration_end(penink):
     color(penink)
     
 
-def timp0(szel,mag): # nem rajzol semmit
+def timp0(szel,mag,xtrawd): # nem rajzol semmit
     up()
     down()
 
-def timp1(szel,mag): # ablak fölötti egyszerű timpanon (2*szel*1.2 széles)
-    up()
-    right(90)
-    forward(mag*0.2)
-    left(90)
-    down()
-
-    forward(szel*1.2)
-    right(160)
-    forward((szel*1.2)/math.cos(alfa_t))
-    right(40)
-    forward((szel*1.2)/math.cos(alfa_t))
-    right(160)
-    forward(szel*1.2)
-
-    up()
-    left(90)
-    forward(mag*0.2)
-    right(90)
-    down()
-
-def timp1b(szel,mag): # ablak fölötti egyszerű timpanon (2*szel*1.6 széles) ///összevonni az előzővel, +1 paraméter!///
+def timp1(szel,mag,xtrawd): # ablak fölötti egyszerű timpanon (2*szel*1.2 (vagy 2*szel*1.6) széles)
     alfa_t=math.radians(20)
+    a=1.2+0.4*xtrawd
+    
     up()
     right(90)
     forward(mag*0.2)
     left(90)
     down()
 
-    forward(szel*1.6)
+    forward(szel*a)
     right(160)
-    forward((szel*1.6)/math.cos(alfa_t))
+    forward((szel*a)/math.cos(alfa_t))
     right(40)
-    forward((szel*1.6)/math.cos(alfa_t))
+    forward((szel*a)/math.cos(alfa_t))
     right(160)
-    forward(szel*1.6)
+    forward(szel*a)
 
     up()
     left(90)
@@ -78,37 +59,21 @@ def timp1b(szel,mag): # ablak fölötti egyszerű timpanon (2*szel*1.6 széles) 
     right(90)
     down()
 
-def timp2(szel,mag): # ablak fölötti egyszerű lunetta (2*szel*1.2 széles) 
+
+def timp2(szel,mag,xtrawd): # ablak fölötti egyszerű lunetta (2*szel*1.2 (vagy 2*szel*1.6) széles)
+    a=1.2+0.4*xtrawd
+
     up()
     right(90)
     forward(mag*0.2)
     left(90)
     down()
 
-    backward(szel*1.2)
+    backward(szel*a)
     right(30)
-    circle(szel*2.4,60)
+    circle(szel*a*2,60)
     setheading(0)
-    forward(szel*1.2)
-
-    up()
-    right(90)
-    forward(mag*0.2)
-    right(90)
-    down()
-
-def timp2b(szel,mag): # ablak fölötti egyszerű lunetta (2*szel*1.6 széles) ///összevonni az előzővel, +1 paraméter!///
-    up()
-    right(90)
-    forward(mag*0.2)
-    left(90)
-    down()
-
-    backward(szel*1.6)
-    right(30)
-    circle(szel*3.2,60)
-    setheading(0)
-    forward(szel*1.6)
+    forward(szel*a)
 
     up()
     right(90)
@@ -117,11 +82,12 @@ def timp2b(szel,mag): # ablak fölötti egyszerű lunetta (2*szel*1.6 széles) /
     down()
 
 
-def timp3(szel,mag): # ablak fölötti összetett timpanon (2*szel*1.2 széles)
+def timp3(szel,mag,xtrawd): # ablak fölötti összetett timpanon (2*szel*1.2 (vagy 2*szel*1.6) széles)
+    a=1.2+0.4*xtrawd
 
     alfa_t=math.radians(20)
-    x=((szel*1.2)/math.cos(alfa_t))
-    y=(1.2*szel*math.tan(alfa_t)/9)
+    x=((szel*a)/math.cos(alfa_t))
+    y=(a*szel*math.tan(alfa_t)/9)
 
 
     up()
@@ -130,21 +96,21 @@ def timp3(szel,mag): # ablak fölötti összetett timpanon (2*szel*1.2 széles)
     left(90)
     down()
 
-    forward(szel*1.2)
+    forward(szel*a)
     right(160)
     forward(x)
     right(40)
     forward(x)
     right(160)
-    forward(szel*1.2)
+    forward(szel*a)
 
-    forward(szel*1.2*0.8)
+    forward(szel*a*0.8)
     right(160)
     forward(x*0.8)
     right(40)
     forward(x*0.8)
     right(160)
-    forward(szel*1.2*0.8)
+    forward(szel*a*0.8)
 
     up()
     left(90)
@@ -152,21 +118,21 @@ def timp3(szel,mag): # ablak fölötti összetett timpanon (2*szel*1.2 széles)
     right(90)
     down()
 
-    forward(szel*1.2)
+    forward(szel*a)
     right(90)
     forward(mag*0.06)
     left(20)
-    forward(1.2*szel/9)
+    forward(a*szel/9)
     right(90)
     forward(x+y)
     right(40)
     forward(x+y)
     right(90)
-    forward(1.2*szel/9)
+    forward(a*szel/9)
     left(20)
     forward(mag*0.06)
     right(90)
-    forward(szel*1.2)
+    forward(szel*a)
 
 
     up()
@@ -175,66 +141,11 @@ def timp3(szel,mag): # ablak fölötti összetett timpanon (2*szel*1.2 széles)
     right(90)
     down()
 
-def timp3b(szel,mag): # ablak fölötti összetett timpanon (2*szel*1.6 széles) ///összevonni az előzővel, +1 paraméter!///
-    alfa_t=math.radians(20)
-    x=((szel*1.6)/math.cos(alfa_t))
-    y=(1.6*szel*math.tan(alfa_t)/9)
 
-
-    up()
-    right(90)
-    forward(mag*0.2)
-    left(90)
-    down()
-
-    forward(szel*1.6)
-    right(160)
-    forward(x)
-    right(40)
-    forward(x)
-    right(160)
-    forward(szel*1.6)
-
-    forward(szel*1.6*0.8)
-    right(160)
-    forward(x*0.8)
-    right(40)
-    forward(x*0.8)
-    right(160)
-    forward(szel*1.6*0.8)
-
-    up()
-    left(90)
-    forward(mag*0.06)
-    right(90)
-    down()
-
-    forward(szel*1.6)
-    right(90)
-    forward(mag*0.06)
-    left(20)
-    forward(1.6*szel/9)
-    right(90)
-    forward(x+y)
-    right(40)
-    forward(x+y)
-    right(90)
-    forward(1.6*szel/9)
-    left(20)
-    forward(mag*0.06)
-    right(90)
-    forward(szel*1.6)
-
-    up()
-    left(90)
-    forward(mag*0.14)
-    right(90)
-    down()
-
-def timp4(szel,mag): # ablak fölötti összetett lunetta (2*szel*1.2 széles) 
-    x=1.2
-    r1=szel*2*x #(r1: radius1)
-    r2=math.sqrt(r1**2-(r1/2)**2+(0.8*x*szel)**2) #(r2: radius2)
+def timp4(szel,mag,xtrawd): # ablak fölötti összetett lunetta (2*szel*1.2 (vagy 2*szel*1.6) széles) 
+    a=1.2+0.4*xtrawd
+    r1=szel*2*a #(r1: radius1)
+    r2=math.sqrt(r1**2-(r1/2)**2+(0.8*a*szel)**2) #(r2: radius2)
     alpha=math.degrees(math.asin(r1*0.4/r2))
 
     up()
@@ -243,16 +154,16 @@ def timp4(szel,mag): # ablak fölötti összetett lunetta (2*szel*1.2 széles)
     left(90)
     down()
 
-    backward(szel*x)
+    backward(szel*a)
     right(30)
     circle(r1,60)
     right(30)
-    backward(szel*x+szel*x*0.8)
+    backward(szel*a+szel*a*0.8)
 
     right(alpha)
     circle(r2,alpha*2)
     right(alpha)
-    backward(szel*x*0.8)
+    backward(szel*a*0.8)
 
 
     up()
@@ -261,21 +172,21 @@ def timp4(szel,mag): # ablak fölötti összetett lunetta (2*szel*1.2 széles)
     right(90)
     down()
 
-    backward(szel*x)
+    backward(szel*a)
     right(90)
     forward(mag*0.06)
 
     right(30)
-    forward(x*szel/9) #legfelső körívnél ennyivel nő a sugár
+    forward(a*szel/9) #legfelső körívnél ennyivel nő a sugár
     left(90)
-    circle(r1+x*szel/9,60)
+    circle(r1+a*szel/9,60)
     left(90)
-    forward(x*szel/9)
+    forward(a*szel/9)
     right(30)
 
     forward(mag*0.06)
     right(90)
-    backward(szel*x)
+    backward(szel*a)
 
     up()
     left(90)
@@ -283,58 +194,8 @@ def timp4(szel,mag): # ablak fölötti összetett lunetta (2*szel*1.2 széles)
     right(90)
     down()
 
-def timp4b(szel,mag): # ablak fölötti összetett lunetta (2*szel*1.6 széles) ///összevonni az előzővel, +1 paraméter!///
-    x=1.6
-    r1=szel*2*x #(r1: radius1)
-    r2=math.sqrt(r1**2-(r1/2)**2+(0.8*x*szel)**2) #(r2: radius2)
-    alpha=math.degrees(math.asin(r1*0.4/r2))
 
-    up()
-    right(90)
-    forward(mag*0.2)
-    left(90)
-    down()
-
-    backward(szel*x)
-    right(30)
-    circle(r1,60)
-    right(30)
-    backward(szel*x+szel*x*0.8)
-
-    right(alpha)
-    circle(r2,alpha*2)
-    right(alpha)
-    backward(szel*x*0.8)
-
-    up()
-    left(90)
-    forward(mag*0.06)
-    right(90)
-    down()
-
-    backward(szel*x)
-    right(90)
-    forward(mag*0.06)
-
-    right(30)
-    forward(x*szel/9) # legfelső körívnél ennyivel nő a sugár
-    left(90)
-    circle(r1+x*szel/9,60)
-    left(90)
-    forward(x*szel/9)
-    right(30)
-
-    forward(mag*0.06)
-    right(90)
-    backward(szel*x)
-
-    up()
-    left(90)
-    forward(mag*0.14)
-    right(90)
-    down()
-
-def win1(szel,mag,timpanon): # téglalap ablak
+def win1(szel,mag,timpanon,xtrawd): # téglalap ablak
     coloration_start(penink,2)
     forward(szel)
     left(90)
@@ -359,8 +220,8 @@ def win1(szel,mag,timpanon): # téglalap ablak
     down()
 
 
-    timpanonrajz=timpanon  ###### /// ezt itt lehet máshogy kéne /// lásd pillar vagy ajtó
-    timpanonrajz(szel,mag) ###### /// ezt itt lehet máshogy kéne /// lásd pillar vagy ajtó
+    timpanonrajz=timpanon           ###### /// ezt itt lehet máshogy kéne /// lásd pillar vagy ajtó
+    timpanonrajz(szel,mag,xtrawd)   ###### /// ezt itt lehet máshogy kéne /// lásd pillar vagy ajtó
 
     up()
     right(90)
@@ -698,19 +559,19 @@ def pilaster(szel,mag,blokkemelet,blokkdb):
 
 
 
-def window0(szel,mag,timptype0): #dísztelen vertikális tag (blokk) ablaka
+def window0(szel,mag,timptype0,xtrawd): #dísztelen vertikális tag (blokk) ablaka
     timpanon=timptype0
-    win1(szel,mag,timpanon)
+    win1(szel,mag,timpanon,xtrawd)
 
-def window0b(szel,mag,timptype0): #dísztelen vertikális tag (blokk) ablaka balusztráddal
+def window0b(szel,mag,timptype0,xtrawd): #dísztelen vertikális tag (blokk) ablaka balusztráddal
     bdb=7
     timpanon=timptype0
-    win1(szel,mag,timpanon)
+    win1(szel,mag,timpanon,xtrawd)
     balustrade_under_window(szel,mag,bdb)
 
-def window1(szel,mag,timptype1): #díszes vertikális tag (blokk) ablaka
+def window1(szel,mag,timptype1,xtrawd): #díszes vertikális tag (blokk) ablaka
     timpanon=timptype1
-    win1(szel,mag,timpanon)
+    win1(szel,mag,timpanon,xtrawd)
     pwd=(szel/2)
     pht=(mag*0.90)
     pheadtype=phead1
@@ -721,10 +582,10 @@ def window1(szel,mag,timptype1): #díszes vertikális tag (blokk) ablaka
     pillar(pwd,pht,pheadtype,pillarornament)
     backward(szel*1.3)
 
-def window1b(szel,mag,timptype1): #díszes vertikális tag (blokk) ablaka balusztráddal
+def window1b(szel,mag,timptype1,xtrawd): #díszes vertikális tag (blokk) ablaka balusztráddal
     bdb=9
     timpanon=timptype1
-    win1(szel,mag,timpanon)
+    win1(szel,mag,timpanon,xtrawd)
     balustrade_under_window(szel,mag,bdb)
     pwd=(szel/2)
     pht=(mag*0.90)
@@ -1179,7 +1040,7 @@ def tetoalj(szel,mag,dbsum,xtra_sum):
     #tetoaljx(szel,mag,dbsum,xtra_sum)
     tetoalj2(szel,mag,dbsum,xtra_sum)
 
-def ablakok0(szel,mag,blokkdb,blokkemelet,wintype0,timptype0,hpos,doortype): # dísztelen vertikális tag (blokk) ablaksorait rajzolja, egy teljes blokkot 
+def ablakok0(szel,mag,blokkdb,blokkemelet,wintype0,timptype0,hpos,doortype,xtrawd): # dísztelen vertikális tag (blokk) ablaksorait rajzolja, egy teljes blokkot 
         e=1
         while e<=blokkemelet:
             for steps in range(blokkdb): # ablaksort rajzol
@@ -1189,7 +1050,7 @@ def ablakok0(szel,mag,blokkdb,blokkemelet,wintype0,timptype0,hpos,doortype): # d
                     if e==1 and hpos==1:
                         ajto(szel,mag,doortype)
                     else:
-                        wintype0(szel,mag,timptype0)   # ////hiba!!! itt window0 volt.............////
+                        wintype0(szel,mag,timptype0,xtrawd)   # ////hiba!!! itt window0 volt.............////
                     up()
                     forward(szel*2.5)
                     down()
@@ -1209,7 +1070,7 @@ def ablakok0(szel,mag,blokkdb,blokkemelet,wintype0,timptype0,hpos,doortype): # d
                 down()
                 e=e+1
 
-def ablakok1(szel,mag,blokkdb,blokkemelet,wintype1,timptype1,hpos,doortype): # dísztelen vertikális tag (blokk) ablaksorait rajzolja, egy teljes blokkot 
+def ablakok1(szel,mag,blokkdb,blokkemelet,wintype1,timptype1,hpos,doortype,xtrawd): # dísztelen vertikális tag (blokk) ablaksorait rajzolja, egy teljes blokkot 
         f=1
         while f<=blokkemelet:
             for steps in range(blokkdb): # ablaksort rajzol
@@ -1219,7 +1080,7 @@ def ablakok1(szel,mag,blokkdb,blokkemelet,wintype1,timptype1,hpos,doortype): # d
                     if f==1 and hpos==1:
                         ajto(szel,mag,doortype)
                     else:
-                        wintype1(szel,mag,timptype1)      # ////hiba!!! itt window1 volt.............////
+                        wintype1(szel,mag,timptype1,xtrawd)      # ////hiba!!! itt window1 volt.............////
                     up()
                     forward(szel*2.5)
                     down()
@@ -1263,12 +1124,12 @@ def blokkkeret1(szel,mag,blokkdb,blokkemelet,xtrawd): # díszes vertikális tag 
     left(90)
     coloration_end(penink)
 
-def blokk0(szel,mag,blokkdb,blokkemelet,wintype0,timptype0,hpos,doortype,hblokksum,pilaster_yn): # dísztelen
+def blokk0(szel,mag,blokkdb,blokkemelet,wintype0,timptype0,hpos,doortype,xtrawd,hblokksum,pilaster_yn): # dísztelen
     blokkkeret0(szel,mag,blokkdb,blokkemelet)
     left(90)
     forward(mag)
     right(90)
-    ablakok0(szel,mag,blokkdb,blokkemelet,wintype0,timptype0,hpos,doortype)
+    ablakok0(szel,mag,blokkdb,blokkemelet,wintype0,timptype0,hpos,doortype,xtrawd)
     if blokkemelet==2 and blokkdb>2 and hpos>1 and hpos!=hblokksum and pilaster_yn==1:
         pilaster(szel,mag,blokkemelet,blokkdb)
         
@@ -1291,7 +1152,7 @@ def blokk1(szel,mag,blokkdb,blokkemelet,wintype1,timptype1,hpos,doortype,xtrawd)
     up()
     forward(szel*0.5*xtrawd)
     down()
-    ablakok1(szel,mag,blokkdb,blokkemelet,wintype1,timptype1,hpos,doortype)
+    ablakok1(szel,mag,blokkdb,blokkemelet,wintype1,timptype1,hpos,doortype,xtrawd)
     up()
     forward(szel*0.5*xtrawd)
     down()
@@ -1336,7 +1197,7 @@ def blokkhaz(szel,mag,dbsum,emsum):
         ornamentparity=(random.choice(values_op))   #ez alapján lesz majd eldöntve hogy a páratlan vpos legyen-e díszesebb vagy a páros
         vpos=1                                      #vertikális pozíciója a blokknak, a bal alsó sarokban rajzolja az elsőt, ennél a vpos=1
         hpos=1                                      #horizontális pozíciója a blokknak, a bal alsó sarokban rajzolja az elsőt, ennél a hpos=1
-        xtrawd=1
+        
         blokkdb=blokkdbsor[vpos-1]
         blokkemelet=blokkemeletsor[hpos-1]
         if vblokksum%2!=0 and ornamentparity==1:        #___________________________________________
@@ -1367,20 +1228,20 @@ def blokkhaz(szel,mag,dbsum,emsum):
         wintype0=(random.choice(valuelist_a[hpos-1]))           # ablaktípust sorsol
         timptype0=(random.choice(valuelist_t[hpos-1]))          # timpanontípust sorsol
         pilaster_yn=random.choice(v_p)
-        if wintype0==window0:                                   # hozzárendel díszes párokat a dísztelenekhez
+        if wintype0==window0:                                   # hozzárendel díszes párokat a dísztelenekhez ///////ez kezd így feleslegessé válni////////
                 wintype1=(window1)
         if wintype0==window0b:
                 wintype1=(window1b)
         if timptype0==timp0:
-                timptype1=(timp3b)
+                timptype1=(timp3)
         if timptype0==timp1:
-                timptype1=(timp3b)
+                timptype1=(timp3)
         if timptype0==timp2:
-                timptype1=(timp2b)
+                timptype1=(timp2)
         if timptype0==timp3:
-                timptype1=(timp3b)
+                timptype1=(timp3)
         if timptype0==timp4:
-                timptype1=(timp4b)
+                timptype1=(timp4)
 
         while vpos<=vblokksum:                              #____________________________________________________________________________________
                 if (vpos%2==0) and (ornamentparity==1):
@@ -1394,9 +1255,11 @@ def blokkhaz(szel,mag,dbsum,emsum):
 
 
                 if ornament==1:
-                                blokk1(szel,mag,blokkdb,blokkemelet,wintype1,timptype1,hpos,doortype,xtrawd)
+                    xtrawd=1
+                    blokk1(szel,mag,blokkdb,blokkemelet,wintype1,timptype1,hpos,doortype,xtrawd)
                 else:
-                                blokk0(szel,mag,blokkdb,blokkemelet,wintype0,timptype0,hpos,doortype,hblokksum,pilaster_yn)
+                    xtrawd=0
+                    blokk0(szel,mag,blokkdb,blokkemelet,wintype0,timptype0,hpos,doortype,xtrawd,hblokksum,pilaster_yn)
 
                 if vpos==vblokksum and hblokksum==hpos:                     # kész, tetőaljat rajzol és elmegy a ház jobb alsó sarkába
                                 up()
@@ -1429,15 +1292,15 @@ def blokkhaz(szel,mag,dbsum,emsum):
                                 if wintype0==window0b:
                                     wintype1=(window1b)
                                 if timptype0==timp0:
-                                    timptype1=(timp3b)
+                                    timptype1=(timp3)
                                 if timptype0==timp1:
-                                    timptype1=(timp3b)
+                                    timptype1=(timp3)
                                 if timptype0==timp2:
-                                    timptype1=(timp2b)
+                                    timptype1=(timp2)
                                 if timptype0==timp3:
-                                    timptype1=(timp3b)
+                                    timptype1=(timp3)
                                 if timptype0==timp4:
-                                    timptype1=(timp4b)
+                                    timptype1=(timp4)
 
                 else:                                                       #   tovább rajzolja a blokksort
                                 vpos=vpos+1
@@ -1554,7 +1417,7 @@ entry1 = IntVar()
 entry2 = IntVar()
 
 
-txt1 = Label(root, text = 'Rajzoljunk klasszicista stílusú házakat!')
+txt1 = Label(root, text = 'Rajzoljunk nagykörúti eklektikus házakat!')
 txt1.grid(row=0, sticky=W, padx=30, pady=10)
 
 txt2 = Label(root, text = 'Írd ide a képernyőd felbontását:')
@@ -1583,7 +1446,7 @@ scale3.grid(row=5, padx=20, pady=10)
 #button = Button(root, text='Get Scale Value', command=sel)
 #button.pack(anchor=CENTER)
 
-gomb01 = Button(root, text='INDULJON A HÁZRAJZOLÁS!', command = start_haz)
+gomb01 = Button(root, text='          INDULJON A HÁZRAJZOLÁS!          ', command = start_haz)
 gomb01.grid(row=6, padx=20, pady=30)
 
 gomb02 = Button(root, text='Csak egy ablakot szeretnék!', command=start_ablak)
