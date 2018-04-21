@@ -4,15 +4,31 @@ from turtle import *
 from tkinter import *
 
 
-def coloration_start(ink):
-    #color("#bcbcbc")
-    color(ink)
+penink='grey'
+fillink0='#f9d87c'
+fillink1='#f7e5b4'
+fillink2='#b0e5e8'
+
+
+    
+
+
+def coloration_start(penink,filltype):
+    if filltype==0:
+        fillink=fillink0
+    if filltype==1:
+        fillink=fillink1
+    if filltype==2:
+        fillink=fillink2
+    color(penink,fillink)
     begin_fill()
 
-def coloration_end(ink):
+
+
+def coloration_end(penink):
+    
     end_fill()
-    #color("#bcbcbc")
-    color(ink)
+    color(penink)
     
 
 def timp0(szel,mag): # nem rajzol semmit
@@ -319,32 +335,40 @@ def timp4b(szel,mag): # ablak fölötti összetett lunetta (2*szel*1.6 széles) 
     down()
 
 def win1(szel,mag,timpanon): # téglalap ablak
+    coloration_start(penink,2)
     forward(szel)
     left(90)
     forward(mag*2)
     left(90)
+    forward(szel*2)
+    left(90)
+    forward(mag*2)
+    left(90)
     forward(szel)
+    coloration_end(penink)
+    left(90)
+    forward(mag*2*2/3)
+    left(90)
+    forward(szel)
+    backward(szel*2)
+    up()
+    right(90)
+    forward(mag*2*1/3)
+    left(90)
+    forward(szel)
+    down()
+
 
     timpanonrajz=timpanon  ###### /// ezt itt lehet máshogy kéne /// lásd pillar vagy ajtó
     timpanonrajz(szel,mag) ###### /// ezt itt lehet máshogy kéne /// lásd pillar vagy ajtó
 
-    forward(szel)
-    left(90)
-    forward(mag*2*0.33)
-    left(90)
-    forward(szel*2)
+    up()
     right(90)
-    forward(mag*2*0.67)
+    backward(mag*2)
     right(90)
-    forward(szel)
-    right(90)
-    forward(mag*2*0.67)
-    left(90)
-    forward(szel)
-    left(90)
-    forward(mag*2*0.67)
-    left(90)
-    forward(szel)
+    down()
+
+    
 
 def win2(szel,mag,timpanon): # félköríves ablak (most nem aktív)
     forward(szel)
@@ -365,6 +389,7 @@ def win2(szel,mag,timpanon): # félköríves ablak (most nem aktív)
     left(90)
 
 def baluster(bwd,bht): # (bwd: baluster width, bht: baluster height)
+    coloration_start(penink,1)
     alfa_b=math.radians(15)
     forward(bwd)
     left(90)
@@ -423,6 +448,7 @@ def baluster(bwd,bht): # (bwd: baluster width, bht: baluster height)
     forward(bht/2)
     left(90)
     forward(bwd)
+    coloration_end(penink)
 
 def balustrade(bwd,bht,bdb): # (bwd: baluster width, bht: baluster height, bdb: baluster darab)
     for steps in range(bdb):
@@ -640,6 +666,7 @@ def pillarbody(pwd,pht,pheadtype): # oszloptest + oszlopfő
     forward(pwd/4)
 
 def pillar(pwd,pht,pheadtype,pillarornament):
+    coloration_start(penink,1)
     pleg(pwd,pht)
     up()
     left(90)
@@ -653,6 +680,7 @@ def pillar(pwd,pht,pheadtype,pillarornament):
     forward(pwd*0.71)
     left(90)
     down()
+    coloration_end(penink)
 
 def pilaster(szel,mag,blokkemelet,blokkdb):
     pwd=(szel*2)
@@ -1042,32 +1070,37 @@ def ajto(szel,mag,doortype):
 #			forward(szel)
 
 def brick1(blokkemelet,szel,mag):
-	for steps in range(blokkemelet*8):
-			backward(szel/2)
-			left(90)
-			forward(mag/4)
-			right(90)
-			forward(szel/2)
-			backward(szel/4)
-			left(90)
-			forward(mag/4)
-			right(90)
-			forward(szel/4)
+    coloration_start(penink,1)
+    for steps in range(blokkemelet*8):
+	    backward(szel/2)
+	    left(90)
+	    forward(mag/4)
+	    right(90)
+	    forward(szel/2)
+	    backward(szel/4)
+	    left(90)
+	    forward(mag/4)
+	    right(90)
+	    forward(szel/4)
+    coloration_end(penink)
 
 def brick2(blokkemelet,szel,mag): # ///össze lehet vonni az előzővel///
-	for steps in range(blokkemelet*8):
-			backward(szel/4)
-			left(90)
-			forward(mag/4)
-			right(90)
-			forward(szel/4)
-			backward(szel/2)
-			left(90)
-			forward(mag/4)
-			right(90)
-			forward(szel/2)
+    coloration_start(penink,1)
+    for steps in range(blokkemelet*8):
+	    backward(szel/4)
+	    left(90)
+	    forward(mag/4)
+	    right(90)
+	    forward(szel/4)
+	    backward(szel/2)
+	    left(90)
+	    forward(mag/4)
+	    right(90)
+	    forward(szel/2)
+    coloration_end(penink)
 
 def tetoalj0(szel,mag,dbsum,xtra_sum):
+    coloration_start(penink,1)
     forward(5*szel*dbsum+szel*xtra_sum)
     left(90)
     forward(3*mag/4)
@@ -1077,6 +1110,7 @@ def tetoalj0(szel,mag,dbsum,xtra_sum):
     backward(3*mag/4)
     forward(3*mag/4)
     right(90)
+    coloration_end(penink)
 
 #def tetoalj1(szel,mag,dbsum,xtra_sum):
 #    tetoalj0(szel,mag,dbsum,xtra_sum)
@@ -1199,6 +1233,7 @@ def ablakok1(szel,mag,blokkdb,blokkemelet,wintype1,timptype1,hpos,doortype): # d
                 f=f+1
 
 def blokkkeret0(szel,mag,blokkdb,blokkemelet): # dísztelen vertikális tag (blokk) keretét rajzolja
+    coloration_start(penink,0)
     forward(5*blokkdb*szel)
     left(90)
     forward(4*blokkemelet*mag)
@@ -1207,8 +1242,10 @@ def blokkkeret0(szel,mag,blokkdb,blokkemelet): # dísztelen vertikális tag (blo
     left(90)
     forward(4*blokkemelet*mag)
     left(90)
+    coloration_end(penink)
 
 def blokkkeret1(szel,mag,blokkdb,blokkemelet,xtrawd): # díszes vertikális tag (blokk) keretét rajzolja (szélesebb ennyivel: xtrawd*szel)
+    coloration_start(penink,0)
     forward(5*blokkdb*szel+xtrawd*szel)
     left(90)
     forward(4*blokkemelet*mag)
@@ -1217,11 +1254,10 @@ def blokkkeret1(szel,mag,blokkdb,blokkemelet,xtrawd): # díszes vertikális tag 
     left(90)
     forward(4*blokkemelet*mag)
     left(90)
+    coloration_end(penink)
 
 def blokk0(szel,mag,blokkdb,blokkemelet,wintype0,timptype0,hpos,doortype,hblokksum,pilaster_yn): # dísztelen
-    coloration_start('#dba81c')
     blokkkeret0(szel,mag,blokkdb,blokkemelet)
-    coloration_end('grey')
     left(90)
     forward(mag)
     right(90)
@@ -1403,7 +1439,7 @@ def blokkhaz(szel,mag,dbsum,emsum):
 
 def start_ablak():
     reset()
-    bgcolor('black')
+    bgcolor('white')
     color('grey')
     speed(0)
     szel=int(var1.get())*2
@@ -1416,7 +1452,7 @@ def start_ablak():
 
 def start_oszlop():
     reset()
-    bgcolor('black')
+    bgcolor('white')
     color('grey')
     speed(0)
 
@@ -1438,7 +1474,7 @@ def start_oszlop():
 
 def start_ajto():
     reset()
-    bgcolor('black')
+    bgcolor('white')
     color('grey')
     speed(0)
     szel=int(var1.get())*2
