@@ -1418,10 +1418,10 @@ entry2.grid(row=2, column=0, sticky=E, padx=80, pady=10)
 scale1 = Scale(root, variable = var1, length=320, label='Állítsd be a rajz méretét!', from_=4, to=40, orient=HORIZONTAL)
 scale1.grid(row=3, padx=20, pady=10)
 
-scale2 = Scale(root, variable = var_em, length=160, label='Hány szintes legyen a ház?', from_=1, to=6, orient=HORIZONTAL)
+scale2 = Scale(root, variable = var_em, length=160, label='Szintek száma:', from_=1, to=6, orient=HORIZONTAL)
 scale2.grid(row=4, sticky=W, padx=20, pady=10)
 
-scale3 = Scale(root, variable = var_db, length=320, label='Hány db ablak legyen a házon szintenként?', from_=1, to=12, orient=HORIZONTAL)
+scale3 = Scale(root, variable = var_db, length=320, label='Ablakok száma szintenként:', from_=1, to=12, orient=HORIZONTAL)
 scale3.grid(row=5, padx=20, pady=10)
 
 #button = Button(root, text='Get Scale Value', command=sel)
