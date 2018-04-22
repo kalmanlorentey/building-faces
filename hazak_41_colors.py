@@ -516,7 +516,6 @@ def pillarbody(pwd,pht,pheadtype): # oszloptest + oszlopfő
     forward(pwd/4)
 
 def pillar(pwd,pht,pheadtype,pillarornament,fillink1):
-    #coloration_start(penink,1)
     color(penink,fillink1)
     begin_fill()
     pleg(pwd,pht)
@@ -1319,7 +1318,7 @@ def start_oszlop():
     forward(mag*3)
     left(90)
     down()
-    pillar(pwd,pht,pheadtype,pillarornament)
+    pillar(pwd,pht,pheadtype,pillarornament,fillink1)
     up()
     forward(1400)
     down()
