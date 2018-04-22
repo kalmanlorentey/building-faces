@@ -3,7 +3,7 @@ import math
 from turtle import *
 from tkinter import *
 
-penink='grey'
+penink='#404040'
 
 def timp0(szel,mag,xtrawd,fillink0,fillink1): # nem rajzol semmit
     up()
@@ -1358,7 +1358,7 @@ def start_haz():
     if resxdiv2*2 > (5*szel*dbsum+szel*2) and resydiv2*2 > (4*mag*emsum):
            reset()
            bgcolor('black')
-           color('grey')
+           color('#404040')
            speed(0)
            up()
            backward((5*szel*dbsum+szel*3)/2)
@@ -1374,7 +1374,7 @@ def start_haz():
     else:
         reset()
         bgcolor('black')
-        color('grey')
+        color('#404040')
         speed(0)
         up()
         goto(-1*int(resxdiv2)+30,-1*int(resydiv2)+60)
