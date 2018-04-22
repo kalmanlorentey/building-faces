@@ -1303,6 +1303,7 @@ def start_ablak():
 
 def start_oszlop():
     reset()
+    fillink1='black'
     bgcolor('black')
     color('grey')
     speed(0)
