@@ -1305,7 +1305,7 @@ def start_oszlop():
     reset()
     fillink1='black'
     bgcolor('black')
-    color('grey')
+    color('white')
     speed(0)
 
     szel=int(var1.get())*2
