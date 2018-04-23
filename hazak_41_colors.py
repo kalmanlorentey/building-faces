@@ -1345,6 +1345,8 @@ def start_ajto():
 
 def start_haz():
     tracer(0, 0)
+    title("Welcome to the building face designer!")
+    setup(width=.99, height=.96, startx=None, starty=0) #screen setup
     
 
     dbsum=int(var_db.get())
@@ -1389,7 +1391,7 @@ def start_haz():
 def save_image():
     file_with_timestamp=datetime.datetime.now().strftime('building_%y%m%d_%H%M%S.ps')
     getscreen().getcanvas().postscript(file=file_with_timestamp)
-    print ('Your image has been saved. The file format is .ps.') 
+    print ('Your image has been saved. The file format is .ps. The Gimp can handle it. ;-) ') 
 
 
 def visszaallit():
@@ -1397,6 +1399,8 @@ def visszaallit():
     bgcolor('black')
     color('grey')
     speed(0)
+
+
 
 root = Tk()
 var1 = IntVar()
