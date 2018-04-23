@@ -1,5 +1,6 @@
 import random
 import math
+import datetime
 from turtle import *
 from tkinter import *
 
@@ -1385,6 +1386,12 @@ def start_haz():
         forward(1400)
         down()
 
+def save_image():
+    file_with_timestamp=datetime.datetime.now().strftime('building_%y%m%d_%H%M%S.ps')
+    getscreen().getcanvas().postscript(file=file_with_timestamp)
+    print ('Your image has been saved. The file format is .ps.') 
+
+
 def visszaallit():
     reset()
     bgcolor('black')
@@ -1418,10 +1425,8 @@ entry2.grid(row=2, column=0, sticky=E, padx=80, pady=10)
 
 scale1 = Scale(root, variable = var1, length=320, label='Állítsd be a rajz méretét!', from_=4, to=40, orient=HORIZONTAL)
 scale1.grid(row=3, padx=20, pady=10)
-
 scale2 = Scale(root, variable = var_em, length=160, label='Szintek száma:', from_=1, to=6, orient=HORIZONTAL)
 scale2.grid(row=4, sticky=W, padx=20, pady=10)
-
 scale3 = Scale(root, variable = var_db, length=320, label='Ablakok száma szintenként:', from_=1, to=12, orient=HORIZONTAL)
 scale3.grid(row=5, padx=20, pady=10)
 
@@ -1430,18 +1435,16 @@ scale3.grid(row=5, padx=20, pady=10)
 
 gomb01 = Button(root, text='          INDULJON A HÁZRAJZOLÁS!          ', command = start_haz)
 gomb01.grid(row=6, padx=20, pady=30)
-
 gomb02 = Button(root, text='Csak egy ablakot szeretnék!', command=start_ablak)
 gomb02.grid(row=7, padx=20, pady=7)
-
 gomb03 = Button(root, text='Hadd lássam a ión oszlopot!', command=start_oszlop)
 gomb03.grid(row=8, padx=20, pady=7)
-
 gomb04 = Button(root, text='Mutass nekem ajtót!', command=start_ajto)
 gomb04.grid(row=9, padx=20, pady=7)
-
-gomb05 = Button(root, text='Reset', command=visszaallit)
+gomb05 = Button(root, text='Ezt a képet mentsük el!', command=save_image)
 gomb05.grid(row=10, padx=20, pady=30)
+gomb06 = Button(root, text='Reset', command=visszaallit)
+gomb06.grid(row=11, padx=20, pady=30)
 
 root.mainloop()
 
