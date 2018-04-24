@@ -1347,19 +1347,18 @@ def start_haz():
     tracer(0, 0)
     title("Welcome to the building face designer!")
     setup(width=.99, height=.96, startx=None, starty=0) #screen setup
-    
 
     dbsum=int(var_db.get())
     emsum=int(var_em.get())
     szel=int(var1.get())*2
     mag=szel*1.5
-    if float(entry1.get())>float(entry2.get()):
-            resxdiv2=float(entry1.get())/2
-            resydiv2=float(entry2.get())/2
-    else:
-            resxdiv2=float(entry2.get())/2
-            resydiv2=float(entry1.get())/2
-    if resxdiv2*2 > (5*szel*dbsum+szel*2) and resydiv2*2 > (4*mag*emsum):
+    #if float(entry1.get())>float(entry2.get()):
+    #        resxdiv2=float(entry1.get())/2
+    #        resydiv2=float(entry2.get())/2
+    #else:
+    #        resxdiv2=float(entry2.get())/2
+    #        resydiv2=float(entry1.get())/2
+    if window_width() > (5*szel*dbsum+szel*2) and window_height() > (4*mag*emsum):
            reset()
            bgcolor('black')
            color('#404040')
@@ -1381,7 +1380,8 @@ def start_haz():
         color('#404040')
         speed(0)
         up()
-        goto(-1*int(resxdiv2)+30,-1*int(resydiv2)+60)
+        #goto(-1*int(resxdiv2)+30,-1*int(resydiv2)+60)
+        goto(-(1/2)*(window_width())+30,-(1/2)*(window_height())+30)
         down()
         blokkhaz(szel,mag,dbsum,emsum)
         up()
@@ -1406,24 +1406,24 @@ root = Tk()
 var1 = IntVar()
 var_em = IntVar()
 var_db = IntVar()
-entry1 = IntVar()
-entry2 = IntVar()
+#entry1 = IntVar()
+#entry2 = IntVar()
 
 
 txt1 = Label(root, text = 'Rajzoljunk nagykörúti eklektikus házakat!')
 txt1.grid(row=0, sticky=W, padx=30, pady=10)
 
-txt2 = Label(root, text = 'Írd ide a képernyőd felbontását:')
-txt2.grid(row=1, sticky=W, padx=30, pady=10)
+#txt2 = Label(root, text = 'Írd ide a képernyőd felbontását:')
+#txt2.grid(row=1, sticky=W, padx=30, pady=10)
 
-entry1 = Entry(root, width=5)
-entry1.grid(row=2, column=0, sticky=W, padx=80, pady=10)
+#entry1 = Entry(root, width=5)
+#entry1.grid(row=2, column=0, sticky=W, padx=80, pady=10)
 
-txt3 = Label(root, text = 'X')
-txt3.grid(row=2, column=0)
+#txt3 = Label(root, text = 'X')
+#txt3.grid(row=2, column=0)
 
-entry2 = Entry(root, width=5)
-entry2.grid(row=2, column=0, sticky=E, padx=80, pady=10)
+#entry2 = Entry(root, width=5)
+#entry2.grid(row=2, column=0, sticky=E, padx=80, pady=10)
 
 
 
