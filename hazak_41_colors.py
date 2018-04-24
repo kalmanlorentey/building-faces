@@ -526,13 +526,13 @@ def pillar(pwd,pht,pheadtype,pillarornament,fillink1):
     right(90)
     down()
     pillarbody(pwd,pht,pheadtype)
+    end_fill()
     pillarornament(pwd,pht)
     up()
     right(90)
     forward(pwd*0.71)
     left(90)
     down()
-    end_fill()
 
 def pilaster(szel,mag,blokkemelet,blokkdb,fillink1):
     pwd=(szel*2)
