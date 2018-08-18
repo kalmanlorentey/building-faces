@@ -1,2 +1,2 @@
-# building-faces
-Budapest Grand Boulevard building faces (drawn with Python Turtle)
+# building-facades
+Budapest Grand Boulevard building facades (drawn with Python Turtle)
